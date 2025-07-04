@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {View,ImageBackground,Image,Text,TextInput,TouchableOpacity,StatusBar,SafeAreaView,ScrollView,} from 'react-native';
+import {View,ImageBackground,Image,Text,TextInput,TouchableOpacity,StatusBar,SafeAreaView,ScrollView, Alert,} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import DeviceInfo from 'react-native-device-info';
-import Toast from 'react-native-tiny-toast';
 import axios from 'axios';
-import AsyncStorage from '@react-native-community/async-storage';
-import PushNotification from "react-native-push-notification";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import PushNotification from "react-native-push-notification";
 
 import Images from '../assets/images/index';
 import AppTexts from '../assets/text/index';
@@ -23,22 +22,23 @@ const register = ({navigation}) => {
   const [mToken, setMToken] = useState('');
 
   const getFcmToken =()=>{
-    PushNotification.configure({
-      onRegister: function (token) {
-        console.log(token.token);
-        setMToken(token.token);
-      },
-      onRegistrationError: function(err) {
-        console.error(err.message, err);
-      },
-      permissions: {
-        alert: true,
-        badge: true,
-        sound: true,
-      },
-      popInitialNotification: true,
-      requestPermissions: true,
-    });
+    console.log("getFcmToken")
+    // PushNotification.configure({
+    //   onRegister: function (token) {
+    //     console.log(token.token);
+    //     setMToken(token.token);
+    //   },
+    //   onRegistrationError: function(err) {
+    //     console.error(err.message, err);
+    //   },
+    //   permissions: {
+    //     alert: true,
+    //     badge: true,
+    //     sound: true,
+    //   },
+    //   popInitialNotification: true,
+    //   requestPermissions: true,
+    // });
   }
 
   const  _storeData = async (data) => {
@@ -61,14 +61,14 @@ const register = ({navigation}) => {
     axios.post(url,{'mobile': inputNumber,'password': inputPassword,'mpin':inputPin,'deviceId':deviceUniqueId,'mToken':mToken})
       .then(function (response) {
         if(response.data.errorType==0){
-          Toast.show("! "+response.data.message+" !");
+          Alert.alert("! "+response.data.message+" !");
           _storeData(response.data.data);
         }else{
-          Toast.show("! "+response.data.message+" !");
+          Alert.alert("! "+response.data.message+" !");
         }
       })
       .catch(function (error) {
-        Toast.show("! "+error.message+" !");
+        Alert.alert("! "+error.message+" !");
         console.log(
           'There has been a problem with your fetch operation: ' +
             error.message,
@@ -91,7 +91,7 @@ const register = ({navigation}) => {
           keyboardShouldPersistTaps="handled">
           <ScrollView>
             <View style={styles.newMainContainer}>
-              <View style={[styles.logoContainer,styles.customBorder],{paddingTop:20}}>
+              <View style={[styles.logoContainer,{paddingTop:20}]}>
                 <Image
                   source={Images.logo.whiteLogo}
                   style={[styles.logo, {width: '100%', resizeMode: 'contain'}]}

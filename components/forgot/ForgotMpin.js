@@ -5,7 +5,6 @@ import axios from 'axios';
 import Images from '../../assets/images/index';
 import AppTexts from '../../assets/text/index';
 import styles from '../../assets/css/index';
-import Toast from 'react-native-tiny-toast';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 const ForgotMpin = ({ navigation }) => {
 
@@ -58,14 +57,14 @@ const ForgotMpin = ({ navigation }) => {
             axios.post(req)
                 .then(res => {
                     if (res.data === 'NA') {
-                        Toast.show("Email id not exist in the system");
+                        Alert.alert("Email id not exist in the system");
                     } else if (res.data === 'SUCCESS') {
                         navigation.navigate('Verify MPIN OTP')
                     }
                 })
                 .catch(error => {
                     console.log(error);
-                    Toast.show("Error While generating Reset MPIN");
+                    Alert.alert("Error While generating Reset MPIN");
                 });
         }
     }
@@ -85,7 +84,7 @@ const ForgotMpin = ({ navigation }) => {
                                         <Image source={Images.icons.backIcon} style={styles.backIcon} />
                                     </TouchableOpacity>
                                 </View>
-                                <View style={[styles.logoContainer,styles.customBorder],{paddingTop:20}}>
+                                <View style={[styles.logoContainer,styles.customBorder,{paddingTop:20}]}>
                                     <Image
                                     source={Images.logo.whiteLogo}
                                     style={[styles.logo, {width: '100%', resizeMode: 'contain'}]}

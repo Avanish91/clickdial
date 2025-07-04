@@ -2,11 +2,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { View, ImageBackground, Image, Text, TouchableOpacity, StatusBar, Alert, SafeAreaView, ScrollView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import OTPTextInput from 'react-native-otp-textinput';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 import '../services/global.js';
-import Toast from 'react-native-tiny-toast';
 import Images from '../assets/images/index';
 import AppTexts from '../assets/text/index';
 import styles from '../assets/css/index';
@@ -45,7 +44,7 @@ const LoginWithMpin = ({ navigation }) => {
           _storeData();
           signIn(response.data);
         }else{
-          Toast.show("! "+response.data.message+" !");
+          Alert.alert("! "+response.data.message+" !");
         }
       })
       .catch(function (error) {
@@ -63,7 +62,7 @@ const LoginWithMpin = ({ navigation }) => {
         <StatusBar hidden={true} />
         <ScrollView style={styles.scrollView}>
           <View style={styles.newMainContainer}>
-            <View style={[styles.logoContainer,styles.customBorder],{paddingTop:20}}>
+            <View style={[styles.logoContainer,styles.customBorder,{paddingTop:20}]}>
                 <Image
                   source={Images.logo.whiteLogo}
                   style={[styles.logo, {width: '100%', resizeMode: 'contain'}]}

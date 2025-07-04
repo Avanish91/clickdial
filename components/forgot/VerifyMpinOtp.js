@@ -5,8 +5,7 @@ import OTPTextInput from 'react-native-otp-textinput';
 import axios from 'axios';
 import Images from '../../assets/images/index';
 import AppTexts from '../../assets/text/index'; 
-import styles from '../../assets/css/index'; 
-import Toast from 'react-native-tiny-toast';
+import styles from '../../assets/css/index';
 
 const VerifyMpinOtp = ({navigation}) => {  
     const [otp,setOtp]=useState('');
@@ -18,12 +17,12 @@ const VerifyMpinOtp = ({navigation}) => {
             if(res.data === 'VALID'){
                 navigation.navigate('Reset Mpin')
             }else{
-                Toast.show('Something Went Wrong, Please try to reset MPIN Again')
+                Alert.alert('Something Went Wrong, Please try to reset MPIN Again')
             }
         })
         .catch(error => {
           console.log(error);
-          Toast.show("Error While generating Reset MPIN");
+          Alert.alert("Error While generating Reset MPIN");
         }); 
       }
     return (
@@ -36,7 +35,7 @@ const VerifyMpinOtp = ({navigation}) => {
                             <Image source={Images.icons.backIcon}  style={styles.backIcon} />
                         </TouchableOpacity>
                 </View>                 
-                <View style={[styles.logoContainer,styles.customBorder],{paddingTop:20}}>
+                <View style={[styles.logoContainer,styles.customBorder,{paddingTop:20}]}>
                     <Image
                     source={Images.logo.whiteLogo}
                     style={[styles.logo, {width: '100%', resizeMode: 'contain'}]}

@@ -6,7 +6,6 @@ import styles from '../../assets/css/index';
 import '../../services/global';
 import axios from 'axios';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import getPath from '@flyerhq/react-native-android-uri-path';
 
 var RNFS = require('react-native-fs');
 const Profile = ({ navigation }) => { 

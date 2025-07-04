@@ -13,8 +13,6 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import OTPTextInput from 'react-native-otp-textinput';
 // import '../../services/global.js'
-
-import Toast from 'react-native-tiny-toast';
 import Images from '../../assets/images/index';
 import AppTexts from '../../assets/text/index';
 import styles from '../../assets/css/index';
@@ -29,15 +27,15 @@ const ResetMpin = ({navigation}) => {
         .post(req)
         .then((res) => {
           if (res.data === 'SUCCESS') {
-            Toast.show('Mpin Reset Done Successfully');
+            Alert.alert('Mpin Reset Done Successfully');
             navigation.navigate('Loading');
           } else {
-            Toast.show('Something Went Wrong, Please try to reset MPIN Again');
+            Alert.alert('Something Went Wrong, Please try to reset MPIN Again');
           }
         })
         .catch((error) => {
           console.log(error);
-          Toast.show('Error While generating Reset MPIN');
+          Alert.alert('Error While generating Reset MPIN');
         });
     } else {
       Alert.alert('MPIN and Confirm MPIN should be match');

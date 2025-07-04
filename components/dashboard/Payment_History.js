@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View,ScrollView,SafeAreaView,Text,StatusBar,TouchableOpacity,Image} from 'react-native';
-import Dash from 'react-native-dash';
+// import Dash from 'react-native-dash';
 import axios from 'axios';
 import Loader from "../loader/loader";
 import Notfound from './notfound';
@@ -26,7 +26,7 @@ const Payment_History = ({navigation}) => {
           setcheckloader(false);
     })
     .catch(error => {
-        Toast.show("! Ooops,Please Check Newtwok !");
+        Alert.alert("! Ooops,Please Check Newtwok !");
     });
   }
   useEffect(() => {

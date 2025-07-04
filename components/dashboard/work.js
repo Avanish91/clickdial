@@ -3,7 +3,6 @@ import {View,ScrollView,SafeAreaView,StatusBar,Text,TouchableOpacity} from 'reac
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import Loader from "../loader/loader";
-import Toast from 'react-native-tiny-toast';
 import Notfound from './notfound';
 import '../../services/global';
 import styles from '../../assets/css/index';
@@ -18,7 +17,7 @@ const work = ({navigation}) => {
     axios.post(newEnquiry, {'vId': global.vId,'deviceId': global.deviceId})
     .then(res => {
       if(res.data.error){         
-        Toast.show("! "+res.data.message+" !");
+        Alert.alert("! "+res.data.message+" !");
         setList([]);
         setcheckloader(false);
       }else{
@@ -27,7 +26,7 @@ const work = ({navigation}) => {
       }
     })
     .catch(error => {
-        Toast.show("! Ooops,Please Check Newtwok !");
+        Alert.alert("! Ooops,Please Check Newtwok !");
     });
   }
   const updateWork = (workType,oId) =>{
@@ -46,13 +45,13 @@ const work = ({navigation}) => {
                   getNewEnquiryDetail();
                 }
               }else{
-                Toast.show("! "+res.data.message+" !");
+                Alert.alert("! "+res.data.message+" !");
               }
       
           })
           .catch(error => {
             console.log(error);
-            Toast.show("! Ooops,Please Check Newtwok !");
+            Alert.alert("! Ooops,Please Check Newtwok !");
           });
         }else{
           navigation.navigate('Wallet');
@@ -60,7 +59,7 @@ const work = ({navigation}) => {
     })
     .catch(error => {
         setCredit('0');
-        Toast.show("! Ooops,Please Check Newtwok !");
+        Alert.alert("! Ooops,Please Check Newtwok !");
     });
   }
 

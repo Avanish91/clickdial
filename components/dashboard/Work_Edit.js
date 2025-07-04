@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {View,ScrollView,SafeAreaView,Text,StatusBar,TouchableOpacity,TextInput,Alert} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Toast from 'react-native-tiny-toast';
 import axios from 'axios';
 import Loader from "../loader/loader";
 import DropDownPicker from 'react-native-dropdown-picker';
-import Icon from 'react-native-vector-icons';
 import '../../services/global';
 import styles from '../../assets/css/index';
 import { setReadable } from 'react-native-fs';
@@ -33,12 +31,12 @@ const Work_Edit = ({navigation,route}) => {
           setAmount(res.data.data[0].wAmount);
           setcheckloader(false);
         }else{
-          Toast.show("! "+res.data.message+" !");
+          Alert.alert("! "+res.data.message+" !");
           setcheckloader(false);
         }
     })
     .catch(error => {
-        Toast.show("! Ooops,Please Check Newtwok !");
+        Alert.alert("! Ooops,Please Check Newtwok !");
     });
   }
 
@@ -53,13 +51,13 @@ const Work_Edit = ({navigation,route}) => {
             if(res.data.errorType==1){
               setcheckloader(false);
             }else{
-                Toast.show("! "+res.data.message+" !");
+                Alert.alert("! "+res.data.message+" !");
                 navigation.navigate('Dashboard');
                 setcheckloader(false);
             }
         })
         .catch(error => {
-            Toast.show("! Ooops,Please Check Newtwok !");
+            Alert.alert("! Ooops,Please Check Newtwok !");
         });
     }
   }

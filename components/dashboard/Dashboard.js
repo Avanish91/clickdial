@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { View, ImageBackground, SafeAreaView, ScrollView, StatusBar, TouchableOpacity, Text, Image, Modal, TouchableHighlight, Alert,req } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
-import Dash from 'react-native-dash';
-import PieChart from 'react-native-pie-chart';
-import Toast from 'react-native-tiny-toast';
+// import Dash from 'react-native-dash';
+// import PieChart from 'react-natrive-pie-chart';
 
 import Loader from "../loader/loader";
 import '../../services/global';
 import Images from '../../assets/images/index';
 import AppTexts from '../../assets/text/index';
 import styles from '../../assets/css/index';
-import { TextInput } from 'react-native-gesture-handler';
 
 const Dashboard = ({ navigation }) => {
     const [didMount, setDidMount] = useState(false); 
@@ -53,7 +51,7 @@ const Dashboard = ({ navigation }) => {
           setcheckloader(false);
       })
       .catch(error => {
-          Toast.show("! Ooops,Please Check Newtwok !");
+          Alert.alert("! Ooops,Please Check Newtwok !");
       });
     }
    useEffect(() => {
@@ -69,20 +67,20 @@ const Dashboard = ({ navigation }) => {
             <Loader load={checkloader} />
             <ScrollView style={styles.scrollView}>
             <View style={[styles.container,{height:765}]}>
-                <StatusBar hidden={true} />
+                {/* <StatusBar hidden={true} /> */}
                 <View style={styles.editPagesMainContainer}>
                 <View style={styles.Margin}></View>
                 <View style={[styles.dashboardBoxContainer,{height:182,paddingTop:0}]}>
                     <View style={[styles.dashboardChartMainContainer,{height:180}]}>
                         <View style={[styles.dashboardChartContainer,{height:180}]}>
-                            <PieChart
+                            {/* <PieChart
                                 chart_wh={chart_wh}
                                 series={Data}
                                 sliceColor={color}
                                 doughnut={true}
                                 coverRadius={0.45}
                                 coverFill={'#FFF'}
-                            />
+                            /> */}
                         </View>
                             <View style={[styles.dashboardChartLabelMainContainer]}>
                                 <ScrollView nestedScrollEnabled={true} >
@@ -110,7 +108,7 @@ const Dashboard = ({ navigation }) => {
                             <Text style={{fontWeight:'bold',fontSize:18}}>{dashboardData.tRecomp}</Text>
                         </View>
                     </View>
-                    <Dash style={{ width: '100%', height: 1 }} dashColor={'#dbdbdb'} />
+                    {/* <Dash style={{ width: '100%', height: 1 }} dashColor={'#dbdbdb'} /> */}
                     <View style={[{flexDirection:'row',flexWrap:'wrap',justifyContent:'center',alignItems:'center'}]}>
                         <View style={[{width:'50%',justifyContent:'center',alignItems:'center',height:50}]}>
                             <Text style={{fontSize:16}}>Answer</Text>
@@ -121,7 +119,7 @@ const Dashboard = ({ navigation }) => {
                             <Text style={{fontWeight:'bold',fontSize:18}}>{dashboardData.tPending}</Text>
                         </View>
                     </View>
-                    <Dash style={{ width: '100%', height: 1 }} dashColor={'#dbdbdb'} />                    
+                    {/* <Dash style={{ width: '100%', height: 1 }} dashColor={'#dbdbdb'} />                     */}
                     <View style={[{flexDirection:'row',flexWrap:'wrap',justifyContent:'center',alignItems:'center'}]}>
                         <View style={[{width:'50%',justifyContent:'center',alignItems:'center',height:50}]}>
                             <Text style={{fontSize:16}}>Complete</Text>

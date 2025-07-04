@@ -1,7 +1,7 @@
 import React from "react";
 import { ImageBackground, Image, StyleSheet, View, StatusBar, Alert, TouchableOpacity } from "react-native";
 import Images from '../assets/images/index';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import '../services/global';
 

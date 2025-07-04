@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View,ScrollView,SafeAreaView,Text,StatusBar,TouchableOpacity,Image} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Toast from 'react-native-tiny-toast';
 import axios from 'axios';
 import Loader from "../loader/loader";
 import Notfound from './notfound';
@@ -19,14 +18,14 @@ const Pending = ({navigation}) => {
     axios.post(url, {'vId': global.vId,'workType':'pending','deviceId': global.deviceId})
     .then(res => {
           if(res.data.error){
-              Toast.show("! "+res.data.message+" !");
+              Alert.alert("! "+res.data.message+" !");
           }else{
               setList(res.data.data);
           }
           setcheckloader(false);
     })
     .catch(error => {
-        Toast.show("! Ooops,Please Check Newtwok !");
+        Alert.alert("! Ooops,Please Check Newtwok !");
     });
   }
   const onShare = async (index) => {

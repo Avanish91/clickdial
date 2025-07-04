@@ -22,7 +22,7 @@ const Wallet = ({navigation}) => {
       })
       .catch(error => {
           setCredit('0');
-          Toast.show("! Ooops,Please Check Newtwok !");
+          Alert.alert("! Ooops,Please Check Newtwok !");
       });
     }
     useEffect(() => {

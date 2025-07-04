@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {View,SafeAreaView,ScrollView,Text,StatusBar,TouchableOpacity,Linking,Share,Image} from 'react-native';
-import Toast from 'react-native-tiny-toast';
 import axios from 'axios';
 import Loader from "../loader/loader";
 import LinearGradient from 'react-native-linear-gradient';
@@ -19,14 +18,14 @@ const Work_Detail = ({navigation,route}) => {
     axios.post(url, {'vId': global.vId,'oId':oId,'deviceId': global.deviceId})
     .then(res => {
           if(res.data.error){
-            Toast.show("! "+response.data.message+" !");
+            Alert.alert("! "+response.data.message+" !");
           }else{
               setList(res.data);
           }
           setcheckloader(false);
     })
     .catch(error => {
-        Toast.show("! Ooops,Please Check Newtwok !");
+        Alert.alert("! Ooops,Please Check Newtwok !");
     });
   }
   const onShare = async () => {
