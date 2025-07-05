@@ -62,7 +62,7 @@ const LoginWithMpin = ({ navigation }) => {
         <StatusBar hidden={true} />
         <ScrollView style={styles.scrollView}>
           <View style={styles.newMainContainer}>
-            <View style={[styles.logoContainer,styles.customBorder,{paddingTop:20}]}>
+            <View style={[styles.logoContainer,{paddingTop:20}]}>
                 <Image
                   source={Images.logo.whiteLogo}
                   style={[styles.logo, {width: '100%', resizeMode: 'contain'}]}

@@ -15,6 +15,7 @@ import  '../services/global'
 
 const register = ({navigation}) => {
   const deviceUniqueId = DeviceInfo.getUniqueId();
+  console.log("deviceUniqueId",deviceUniqueId)
   const url=global.url+global.register;
   const [inputNumber, setNumber] = useState();
   const [inputPassword, setPassword] = useState();
@@ -58,7 +59,7 @@ const register = ({navigation}) => {
     };
 
   const callRegisterApi = () => {
-    axios.post(url,{'mobile': inputNumber,'password': inputPassword,'mpin':inputPin,'deviceId':deviceUniqueId,'mToken':mToken})
+    axios.post(url,{'mobile': inputNumber,'password': inputPassword,'mpin':inputPin,'deviceId':"deviceUniqueId",'mToken':"mToken"})
       .then(function (response) {
         if(response.data.errorType==0){
           Alert.alert("! "+response.data.message+" !");

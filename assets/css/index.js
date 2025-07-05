@@ -159,8 +159,8 @@ const styles = StyleSheet.create({
       titleContainer:{flexDirection:'row',flexWrap:'wrap'},
       titleLabel:{color:'#fff',fontSize:16,fontFamily:'NunitoSans-Light'},
       titleName:{color:'#fff',fontSize:22,fontFamily:'NunitoSans-Bold'},
-      labelStyle:{color:'#fff',fontSize:16,fontFamily:'NunitoSans-Regular',paddingLeft:0,marginLeft:-15},
-      drawerSection: {borderBottomWidth:1,borderColor:'#3c6faa',height:45,justifyContent:'center'},
+      labelStyle:{color:'#fff',fontSize:16,fontFamily:'NunitoSans-Regular',paddingLeft:0,marginLeft:10},
+      drawerSection: {borderColor:'#3c6faa',height:50,justifyContent:'center'},
       drawerIcon:{height:20,width:20,resizeMode:'contain'}, 
       /*******************      Menu End              *****************************/ 
       /*******************      Dashboard Start       *****************************/
