@@ -63,6 +63,8 @@ const BodyStackScreen = ({ navigation }) => {
     headerTitleStyle: {
       fontFamily: 'NunitoSans-Regular',
       fontSize: 20,
+      marginLeft: Platform.OS === 'android' ? 10 : 0, // Android fix
+
     },
     headerLeft: () => (
       <TouchableOpacity onPress={() => navigation.openDrawer()}>

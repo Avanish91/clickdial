@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "789775046150",
+    "firebase_url": "https://clickdial-89682.firebaseio.com",
+    "project_id": "clickdial-89682",
+    "storage_bucket": "clickdial-89682.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789775046150:android:d1be1e96794a4cb575d587",
+        "android_client_info": {
+          "package_name": "com.clickdial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "789775046150-7kgpkr4o3ivg2g45jlvchnob246s3u2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATVo7_kWdCYbtCL8BwtQOAxS10pJoDsh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789775046150-7kgpkr4o3ivg2g45jlvchnob246s3u2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
